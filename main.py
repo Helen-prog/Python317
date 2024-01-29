@@ -1537,21 +1537,24 @@
 # s = {input("-> ") for i in range(5)}
 # print(s)
 
-a = set("Hello")
-print(a)
-# print('o' in a)
-# print('a' in a)
-a.add("a")
-print(a)
-el = "e"
-if el in a:
-    a.remove(el)  # KeyError
-print(a)
-a.discard("o")
-print(a)
-a.pop()
-print(a)
-a.clear()
-print(a)
+# a = set("Hello")
+# print(a)
+# # print('o' in a)
+# # print('a' in a)
+# a.add("a")
+# print(a)
+# el = "e"
+# if el in a:
+#     a.remove(el)  # KeyError
+# print(a)
+# a.discard("o")
+# print(a)
+# a.pop()
+# print(a)
+# a.clear()
+# print(a)
+
+
+print("Hello")
 
 

@@ -119,7 +119,18 @@ git init
 git status
 - просмотр состояния репозитория
 
+git add -A
+	-A, --all - все файлы, которые находятся в папке и всех подпапках
+	main.py - один файл 
+	. - все файлы из текущей директории
+- отслеживание изменения файлов
 
+git config --global user.name "new user"
+		   --local
 
+git config --global user.email "test@mail.ru"
 
+git commit -m "first commit"
+- создание контрольной точки состояния репозитория
 
+.gitignore
