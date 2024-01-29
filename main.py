@@ -1555,6 +1555,8 @@
 # print(a)
 
 
-print("Hello")
+# print("Hello")
+
+print("Данные для добавления на GitHub")
 
 
