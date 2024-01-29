@@ -1,0 +1,125 @@
+index.html
+! -> Tab
+lorem
+
+align = left | center | right | justify
+Shift + Alt + стрелка вниз - создание дубликата
+
+	h1
+h2
+		h3
+	h4
+		h5
+h6
+
+<!-- --> 
+/*  */
+Сtrl + /
+
+H20
+
+open in browser
+
+https://validator.w3.org/
+
+Ctrl + H
+align="
+style="text-align:
+
+
+style.html
+
+file:///D:/Python317/HTML/inform.html
+
+file:///D:/Python317/HTML/%D0%9F%D0%B5%D1%80%D0%B2%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html
+
+
+#FF0000  -> F00
+
+0-9A-F
+
+rgb(255, 0, 0)
+<span></span>
+
+https://fonts.google.com/
+
+list.html
+
+Shift + Alt + F
+
+style.css
+
+
+Растровые изображения:
+*.jpg (jpeg)
+*.png
+*.gif
+
+Векторые изображения:
+*.svg
+
+file:///D:/Python317/HTML/form/file.php?name=%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0&psw=fgdfgdfg&pol=on
+
+file:///D:/Python317/HTML/form/form.html?name=Olga&psw=123456&pol=on#file.php
+file:///D:/Python317/HTML/form/form.html#file.php
+file:///D:/Python317/HTML/form/form.html#file.php?page=2
+file:///D:/Python317/HTML/form/form.html?name=figma&psw=789456&pol=on#file.php
+file:///D:/Python317/HTML/form/form.html?name=Olga&psw=123456&pol=on&x=52&y=55#file.php
+
+win + R => cmd
+python
+py
+
+terminal
+1.py
+
+print("Hello, World!")
+
+1.py
+python 1.py
+py 1.py
+
+IDLE
+
+import keyword
+keyword.kwlist
+
+
+0 - 9
+1 - 99
+
+ворона: 
+1, 21, 31, 41, 51, ... 91
+
+вороны: 
+2 , 22, 92
+3
+4
+
+ворон: 
+5 6 7 8 9 0
+
+
+import math
+import math as m
+from math import *
+
+from math import ceil, floor
+
+1,000,000.23
+
+
+
+git --version
+git --help
+
+git init 
+- создание нового репозитория (один раз для одного репозитория)
+
+git status
+- просмотр состояния репозитория
+
+
+
+
+
