@@ -166,3 +166,32 @@ git merge readme
 
 git log
 - история коммитов
+
+токен
+
+win + R => control
+(Панель управления)
+
+Диспечер учетных данных
+Учетные данные Windows
+Общие учетные данные -> Добавить
+https://github.com
+
+
+git remote add origin https://github.com/Helen-prog/Python317.git
+git push -u origin master
+
+75d6a172128ea34beeeb00a21b1a82b736b3ab58
+
+0) git status
+1) git add .
+2) git commit -m "added print"
+3) git push
+- с локального репозитория переносит файлы на удаленный репозиторий
+
+git clone https://github.com/Helen-prog/Python317.git
+- клонирование репозитория
+
+git pull
+- забирает измения с удаленного репозитория в локальный
+
