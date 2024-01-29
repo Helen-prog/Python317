@@ -134,3 +134,35 @@ git commit -m "first commit"
 - создание контрольной точки состояния репозитория
 
 .gitignore
+
+git add .
+git commit -m "added gitignore"
+
+Ветки
+
+git branch
+- просмотр веток
+
+git branch test
+- создаем ветку
+
+git branch -D test
+- удаление ветки
+
+git branch readme
+
+git checkout readme
+- перейти на ветку
+
+readme.md
+
+
+master       readme  
+main.py  ->   main.py
+		<-	  readme.md
+			  
+git merge readme
+- слияние веток
+
+git log
+- история коммитов
