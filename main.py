@@ -1882,16 +1882,232 @@
 # print(d2)
 
 
-a = ['one', 1, [2, 3], 'two', 10, 20, 'three', 15, 36, 60, 'four', -20]
+# a = ['one', 1, [2, 3], 'two', 10, 20, 'three', 15, 36, 60, 'four', -20]
+#
+# d = dict()
+# s = None
+# print(type(s))
+# for i in a:
+#     if type(i) == str:  # {'one': [1,2,3], 'two': [10,20], 'three': [], 'four': []}
+#         d[i] = []  # d['two'] = []
+#         s = i  # s = 'two'
+#     else:
+#         d[s].append(i)  # d['two'].append(20)
+#
+# print(d)
 
-d = dict()
-s = None
-print(type(s))
-for i in a:
-    if type(i) == str:  # {'one': [1,2,3], 'two': [10,20], 'three': [], 'four': []}
-        d[i] = []  # d['two'] = []
-        s = i  # s = 'two'
-    else:
-        d[s].append(i)  # d['two'].append(20)
 
-print(d)
+# sales = {'John': {'N': 3056, 'S': 8463, 'E': 8441, 'W': 2694},
+#          'Tom': {'N': 4832, 'S': 6786, 'E': 4737, 'W': 3612},
+#          'Anne': {'N': 5239, 'S': 4802, 'E': 5820, 'W': 1859},
+#          'Fiona': {'N': 3904, 'S': 3645, 'E': 8821, 'W': 2451}}
+#
+#
+# for x in sales:
+#     print(x)
+#     for y in sales[x]:
+#         print("\t",  y, ":", sales[x][y])
+#
+# person = input("Имя: ")
+# region = input("Регион: ")
+# print(sales[person][region])
+# new_data = int(input("Новое значение: "))
+# sales[person][region] = new_data
+# print(sales[person])
+
+
+# zip()
+
+# one = [1, 2, 3]
+# two = ["one", "two", "three", 4, 5]
+# three = [2.5, 4.6, 8.9]
+#
+# d = dict(zip(two, one))
+# print(d)
+#
+# lst = list(zip(one, two))  #, three
+# lst = list(zip(one))
+# print(lst)
+
+# f = {k: v for k, v in zip(two, one)}
+# print(f)
+
+# one = {"name": "Igor", "surname": "Doe", "job": "Consultant"}
+# two = {"name": "Irina", "surname": "Smith", "job": "Manager"}
+# three = {"name": "Irina", "surname": "Smith", "job": "Manager"}
+#
+#
+# for (k1, v1), (k2, v2), (k3, v3) in zip(one.items(), two.items(), three.items()):
+#     print(k1, "->", v1)
+#     print(k2, "->", v2)
+#     print(k3, "->", v3)
+
+# lst = [(1, 'one'), (2, 'two'), (3, 'three')]
+# a, b = zip(*lst)
+# print(a)  # (1, 2, 3)
+# print(b)  # ('one', 'two', 'three')
+
+# a = {"one": 1, 'two': 2, "three": 5}
+# b = {"three": 3, 'four': 4}
+# print({**a, **b})  # {"one": 1, 'two': 2, "three": 3, 'four': 4}
+#
+# for k, v in {**a, **b}.items():
+#     print(k, "->", v)
+
+# data = [5, 7, 9, 4, 1, 3, 5, 8, 6, 4]
+# data = ["red", "green", "blue"]
+#
+# for num, color in enumerate(data, 1):
+#     print(num, ") ", color, sep="")
+
+# j = 1
+# for i in data:
+#     print(j, ") ", i, sep="")
+#     j += 1
+
+# a = [1, 2, 3]
+# b = [*a, 4, 5, 6]  # [1, 2, 3, 4, 5, 6]
+# print(b)
+
+# def func(*args):
+#     return args
+#
+#
+# print(func(5))
+# print(func(5, 6, 7, "abc"))
+# print(func())
+
+
+# def summa(*param):
+#     res = 0
+#     for i in param:
+#         res += i
+#     return res
+#
+#
+# print(summa(1, 8, 9, 6, 5, 4, 7, 3, 5, 1, 4, 2, 6))
+# print(summa(5, 4, 7, 3, 5, 1, 4))
+# print(summa(4, 2, 6))
+
+
+# def to_dict(*di):
+#     # dictionary = {}
+#     # for i in di:
+#     #     dictionary.update({i: i})
+#     #
+#     # return dictionary
+#     # return dict(zip(di, di))
+#     return {i: i for i in di}
+#
+#
+# print(to_dict(1, 2, 3, 4))
+# print(to_dict("grey", (2, 17), 3.11, -4))
+
+# def ch(*args):
+#     average = sum(args) / len(args)
+#     print(average)
+#     res = []
+#     for num in args:
+#         if average > num:
+#             res.append(num)
+#     return res
+#
+#
+# print(ch(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# print(ch(3, 6, 1, 9, 5))
+
+# def func(a, *args):
+#     return a, args
+#
+#
+# print(func(5))
+# print(func(5, 9, 8, 7, 6))
+
+# def print_scores(student, *scores):
+#     print("Name:", student)
+#     for score in scores:
+#         print(score, end=" ")
+#     print()
+#
+#
+# print_scores("Roman", 5, 4, 3, 5, 4, 5, 5, 3, 5)
+# print_scores("Nikita", 5, 5, 3, 5)
+
+# def func(**kwargs):
+#     return kwargs
+#
+#
+# print(func(a=1, b=2, c=3))
+# print(func())
+# print(func(name="Python"))
+
+# def intro(**kwargs):
+#     for k, v in kwargs.items():
+#         print(k, "is", v)
+#     print()
+#
+#
+# intro(name="Irina", surname="Sharma", age=22)
+# intro(name="Igor", surname="Wood", email="igor@gmail.com", age=26, phone=987654321)
+
+
+# def func(a, b, *args, dd=5, cc=7, **kwargs):
+#     return a, b, args, kwargs, dd, cc
+#
+#
+# print(func(1, 2, 3, 4, 5, aa=1, cc=3, bb=2))  #
+
+# def db(**kwargs):
+#     my_dict.update(**kwargs)
+#
+#
+# my_dict = {"one": "first"}
+# db(k1=22, k2=31, k3=11, k4=91)
+# db(name="Bob", age=31, weight=61, eyes_color="grey")
+# print(my_dict)
+
+# name = "Tom"  # глобальная переменная
+# surname = ""
+#
+#
+# def hi():
+#     global name, surname
+#     name = "Sam"  # локальная переменная
+#     surname = "Johnson"
+#     print("Hello", name, surname)
+#
+#
+# def bye():
+#     print("Good bye", name)
+#
+#
+# print(name)
+# hi()
+# bye()
+# print(name)
+# print(surname)
+# i = 5
+#
+#
+# def func(arg=i):
+#     print(arg)
+#
+#
+# i = 6
+# func()  # 5
+
+x = 10
+
+
+def func(a):  # a = 3
+    # x = 2
+
+    def inner():
+        # x = 6
+        print("x:", x)
+        return a + x  # 3 + 10
+
+    return inner()
+
+
+print(func(3))
