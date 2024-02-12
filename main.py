@@ -2146,8 +2146,228 @@
 # outer("World!")
 
 
-def fun1():
-    a = 6
+# def fun1():
+#     a = 6  # 2
+#
+#     def fun2(b):  # b = 4
+#         a = 4  # 5  # a = 6
+#         print(a + b)  # 6  # a + b = 8 (10)
+#
+#     print("a:", a)  # 3
+#     fun2(4)  # 4
+#
+#
+# fun1()  # 1
 
-    def fun2():
-        a = 4
+# x = 25
+# t = 0
+#
+#
+# def fn():
+#     global t
+#     a = 30  # 35
+#
+#     def inner():
+#         nonlocal a
+#         a = 35
+#         # print(a)
+#
+#     inner()
+#     t = a  # 35
+#
+#
+# fn()
+# q = x + t  # 25 + 35
+# print(q)  # 60
+
+# x = 5
+
+
+# def fn1():
+#     x = 25  # 55
+#
+#     def fn2():
+#         x = 33  # 55
+#
+#         def fn3():
+#             nonlocal x
+#             x = 55
+#
+#         fn3()
+#         print("fn2.x =", x)  # 33  55
+#
+#     fn2()
+#     print("fn1.x =", x)  # 25  55
+#
+#
+# fn1()
+
+# def outer(a1, b1, a2, b2):
+#     a = 0  # 1
+#     b = 0  # 7
+#
+#     def inner():
+#         nonlocal a, b
+#         a = a1 + a2
+#         b = b1 + b2
+#         # print("a:", a)
+#         # print("b:", b)
+#
+#     inner()
+#     return [a, b]
+#
+#
+# print(outer(2, 3, -1, 4))  # [1, 7]
+
+
+# Замыкание
+
+# def outer(n):  # 5
+#     def inner(x):  # 10
+#         return n + x
+#
+#     return inner
+#
+#
+# out1 = outer(5)
+# print(out1(10))
+#
+# out2 = outer(6)
+# print(out2(4))
+
+# print(outer(5)(10))
+
+
+# def func(a):
+#     return a + 2
+#
+#
+# var = func(5)
+# print(var)
+
+
+# def func1():
+#     a = 1
+#     b = "line"
+#     c = [1, 2, 3]
+#
+#     def func2():
+#         nonlocal a, b
+#         c.append(4)
+#         a = a + 1
+#         b = b + "_new"
+#         return a, b, c
+#
+#     return func2
+#
+#
+# func = func1()
+# print(func())
+
+
+# def func(city):
+#     count = 0  # 3  # 5
+#
+#     def inner():
+#         nonlocal count
+#         count += 1
+#         print(city, count)
+#
+#     return inner
+#
+#
+# res1 = func("Москва")
+# res1()
+# res1()
+#
+# res2 = func("Сочи")
+# res2()
+# res2()
+# res2()
+# res2()
+# res2()
+#
+# res1()
+# res1()
+# res1()
+# res1()
+
+
+# lambda - функция (выражение)
+
+# def func(x, y):
+#     return x + y
+#
+#
+# print(func(2, 3))
+
+# print((lambda x, y: x + y)(2, 3))
+# print((lambda x, y: x + y)(12, 3))
+
+# variable = lambda x, y: x + y
+#
+# print(variable(2, 3))
+
+# print((lambda x, y: x ** 2 + y ** 2)(2, 5))
+
+# print((lambda a, b, c: a + b + c)(10, 20, 30))
+# print((lambda a, b, c=3: a + b + c)(10, 20))
+# print((lambda a, b=2, c=3: a + b + c)(10))
+# print((lambda a=1, b=2, c=3: a + b + c)())
+
+# print((lambda *args: sum(args))(1, 2, 3, 4, 5, 6))
+# print((lambda *args: args)("a", "b", "c"))
+
+
+# c = (
+#     lambda x: x * 2,
+#     lambda x: x * 3,
+#     lambda x: x * 4,
+# )
+#
+# for t in c:
+#     print(t("abc_"))
+
+# def outer(n):
+#     def inner(x):
+#         return n + x
+#
+#     return inner
+#
+#
+# f = outer(5)
+# print(f(10))
+
+
+# def outer1(n):
+#     return lambda x: n + x
+#
+#
+# f1 = outer1(5)
+# print(f1(10))
+#
+# outer2 = lambda n: lambda x: n + x
+#
+# f2 = outer2(5)
+# print(f2(10))
+
+# print((lambda n: lambda x: n + x)(5)(10))
+
+
+# print((lambda n: lambda x: lambda y: n + x + y)(2)(4)(6))
+# print((lambda n: lambda x: lambda y: n+x+y)(int(input("Введите 1 число: ")))(int(input("Введите 2 число: ")))
+# (int(input("Введите 3 число: "))))
+
+
+def func(i):
+    return i[1]
+
+
+d = {"b": 15, "a": 7, "c": 3}
+print(d)
+lst = list(d.items())
+print(lst)
+lst.sort(key=lambda i: i[1])
+# lst.sort(key=func)
+print(lst)
+print(dict(lst))
