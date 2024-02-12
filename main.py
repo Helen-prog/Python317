@@ -2096,18 +2096,58 @@
 # i = 6
 # func()  # 5
 
-x = 10
+# x = 10
+#
+#
+# def func(a):  # a = 3
+#     # x = 2
+#
+#     def inner():
+#         # x = 6
+#         print("x:", x)
+#         return a + x  # 3 + 10
+#
+#     return inner()
+#
+#
+# print(func(3))
 
 
-def func(a):  # a = 3
-    # x = 2
+# students = {}
+#
+# n = int(input("Кол-во студентов: "))
+# s = 0
+# for i, key in enumerate(range(n), 1):
+#     name = input(str(i) + "-й студент: ")
+#     point = int(input("Балл: "))
+#     students[name] = point
+#     s += point
+#
+# average = s / n
+# print("Средний балл:", average)
+# for key in students:
+#     if students[key] > average:
+#         print(key)
 
-    def inner():
-        # x = 6
-        print("x:", x)
-        return a + x  # 3 + 10
+# sum = "Hello"
+#
+# print(sum)
+#
+# lst = [1, 2, 3, 4, 5, 6, 4]
+# print(sum(lst))
 
-    return inner()
+# def outer(who):
+#     def inner():
+#         print("Hello,", who)
+#
+#     inner()
+#
+#
+# outer("World!")
 
 
-print(func(3))
+def fun1():
+    a = 6
+
+    def fun2():
+        a = 4
