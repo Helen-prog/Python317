@@ -2563,27 +2563,236 @@
 # test()
 
 
-def my_decorator(func):  # декорирующая функция
-    def inner():
-        print('*' * 40)
-        func()
-        print('-' * 40)
-    return inner
+# def my_decorator(func):  # декорирующая функция
+#     def inner():
+#         print('*' * 40)
+#         func()
+#         print('-' * 40)
+#     return inner
+#
+#
+# @my_decorator  # декоратор
+# def func_test():  # декорируемая функция
+#     print('Hello, I am func "func_test"')
+#
+#
+# @my_decorator
+# def hello():
+#     print('Hello, I am func "hello"')
+#
+#
+# func_test()
+# hello()
+
+# def bold(fn):
+#     def wrap():
+#         return "<b>" + fn() + "</b>"
+#
+#     return wrap
+#
+#
+# def italic(fn):
+#     def wrap():
+#         return "<i>" + fn() + "</i>"
+#
+#     return wrap
+#
+#
+# @bold
+# @italic
+# def hello():
+#     return "text"
+#
+#
+# print(hello())
 
 
-@my_decorator  # декоратор
-def func_test():  # декорируемая функция
-    print('Hello, I am func "func_test"')
+# def cnt(fn):
+#     count = 0
+#
+#     def wrap():
+#         nonlocal count
+#         count += 1
+#         fn()
+#         print("Вызов функции:", count)
+#
+#     return wrap
+#
+#
+# @cnt
+# def hello():
+#     print("Hello")
+#
+#
+# hello()
+# hello()
+# hello()
+
+# def args_decorator(fn):
+#     def wrap(arg1, arg2):
+#         print("Данные:", arg1, arg2)
+#         fn(arg1, arg2)
+#
+#     return wrap
+#
+#
+# @args_decorator
+# def print_full_name(first, last):
+#     print("Меня зовут", first, last)
+#
+#
+# print_full_name("Ирина", "Мумладзе")
 
 
-@my_decorator
-def hello():
-    print('Hello, I am func "hello"')
+# def args_decorator(fn):
+#     def wrap(*args, **kwargs):
+#         print("args:", args)
+#         print("kwargs:", kwargs)
+#         fn(*args, **kwargs)
+#
+#     return wrap
+#
+#
+# @args_decorator
+# def func(a, b, c, study="Python"):
+#     print(a, b, c, "изучают", study, end="\n\n")
+#
+#
+# @args_decorator
+# def func1(study):
+#     print("Мне нравится", study)
+#
+#
+# func("Борис", "Елизавета", "Светлана", study="JavaScript")
+# func("Владимир", "Екатерина", "Виктор")
+# func1(study="HTML")
+
+# def decor_args(arg1, arg2):
+#     def decor(fn):
+#         def wrap(x, y):
+#             print(arg1, x, arg2, y, "=", end=" ")
+#             fn(x, y)
+#
+#         return wrap
+#     return decor
+#
+#
+# @decor_args("Сумма:", "+")
+# def summa(a, b):
+#     print(a + b)
+#
+#
+# @decor_args("Разность:", "-")
+# def sub(a, b):
+#     print(a - b)
+#
+#
+# summa(5, 2)
+# sub(5, 2)
 
 
-func_test()
-hello()
+# def decor_args(arg1):
+#     def decor(fn):
+#         def wrap(x):
+#             return arg1 * fn(x)  # 3 * 5
+#
+#         return wrap
+#
+#     return decor
+#
+#
+# @decor_args(3)
+# def return_num(num):
+#     return num
+#
+#
+# print(return_num(5))
 
 
-m = "Hello"
-print(m[::-1])
+# Строки
+
+# print(int("19"))
+# print(int("19.5"))
+# print(int(19.5))
+
+# print(int("100", 2))
+# print(int("100", 8))
+# print(int("100", 10))
+# print(int("100", 16))
+
+
+# print(bin(18))  # 0b10010 - двоичная
+# print(oct(18))  # 0o22 - восьмеричная
+# print(hex(18))  # 0x12 - шестнадцатеричная
+#
+# print(0b10010)
+# print(0o22)
+# print(0x12)
+# print(0b10010 + 0x12)
+
+
+# q = 'Pyt'
+# w = "hon"
+# e = q + w
+# print(e)
+# print(e * 2)
+# print("y1" in e)
+# print(e[0])
+# print(e[1:3])
+
+# s = "Python"  # Pytton
+# # s[3] = "t"
+# s = s[:3] + 't' + s[4:]
+# print(s)
+
+# def change_char_to_str(s, old, new):
+#     s2 = ""
+#     i = 0
+#
+#     while i < len(s):
+#         if s[i] == old:
+#             s2 = s2 + new
+#         else:
+#             s2 = s2 + s[i]
+#         i += 1
+#
+#     return s2
+#
+#
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# str2 = change_char_to_str(str1, "N", "P")
+# print("str1 =", str1)
+# print("str2 =", str2)
+
+# print("Привет")
+# print(u"Привет")
+
+# print("C:\\folder\\fil\nes.txt\\")
+# print(r"C:\folder\files\\"[:-1])
+# print(r"C:\folder\files" + "\\")
+
+# name = "Дмитрий"
+# age = 25
+# print("Меня зовут " + name + ". Мне " + str(age) + " лет.")
+# print(f"Меня зовут {name}. Мне {age} лет.")
+
+# ch = 5.26987412
+#
+# print(f"Число: {round(ch, 3)}")
+# print(f"Число: {ch:.3f}")
+
+# x = 10
+# y = 5
+# print(f"{x = }, {y = }")
+# print(f"{x} x {y} / 2 = {x * y / 2}")
+
+# num = 74
+#
+# print(f"{{{{{num}}}}}")
+#
+# print("C:\\\\text")
+
+dir_name = 'my_doc'
+file_name = "data.txt"
+print(fr"home\{dir_name}\{file_name}")
+print("home\\" + dir_name + "\\" + file_name)
