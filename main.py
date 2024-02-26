@@ -3002,6 +3002,93 @@
 # print('www.python.org.ru'.split(".", 2))
 # print('www.python.org.ru'.rsplit(".", 2))
 
-a = input("-> ").split()
-b = list(map(int, a))
-print(b)
+# a = input("-> ").split()
+# b = list(map(int, a))
+# print(b)
+
+# fio = input("Введите ФИО: ").split()
+# print(fio)
+# print(f"{fio[0]} {fio[1][0]}.{fio[2][0]}.")
+
+# Регулярные выражения
+
+import re
+
+# s = "Я ищу совпадение в 2024 году. И я их найду в 2 счёта."
+# reg = "а"
+
+# print(re.findall(reg, s))  # возвращает список содержащий все совпадения
+#
+# print(re.search(reg, s))  # месторасположение первого совпадения с объектом
+# # print(re.search(reg, s).span())
+# # print(re.search(reg, s).start())
+# # print(re.search(reg, s).end())
+# # print(re.search(reg, s).group())
+#
+# print(re.match(reg, s))  # поиск совпадения с шаблоном вначале строки
+#
+# print(re.split(reg, s, 1))  # возвращает список, в котором строка разбита по шаблону
+#
+# print(re.sub(reg, "!", s, 2))  # поиск и замена
+
+# s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё-та. 198673 Hello"
+# reg = "[21][0-9][0-9][0-9]"
+# reg = "[А-яЁё]"
+# reg = "[A-Za-z]"
+# reg = r"\."
+# reg = r"[A-Za-z\[\]-]"
+# reg = r"[^0-9]"
+# reg = r"[^А-яЁёA-Za-z0-9]"
+# print(re.findall(reg, s))
+
+# print(ord('Я'))
+# print(ord('а'))
+
+
+# st = "Час в 24 формате от 00 до 23. 2021-06-15T19 : 30. Минуты, в диапазоне от 00 до 59. 2021-06-15T01 : 09."
+# pattern = r"[0-2][0-9]\s:\s[0-5][0-9]"
+# print(re.findall(pattern, st))
+
+
+# s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё-та. 198673 Hel_lo 20000000000000000000000000"
+# reg = r"[20]*"
+# print(re.findall(reg, s))
+
+# Кол-во повторений
+# + - от 1 до бесконечности
+# * - от 0 до бесконечности
+# ? - от 0 до 1
+
+# d = "Цифры: 7, +17, --42, 0013, 0.3"
+# reg = r'[+-]?[\d.]+'
+# print(re.findall(reg, d))
+
+
+# s = "05-03-1987 # Дата рождения"
+# print("Дата рождения:", re.sub(r"\s#.*", "", s))
+# print(re.sub('-', '.', s))
+# print("Дата рождения:", re.sub('-', '.', re.sub(r"\s#.*", "", s)))
+# # print("Дата рождения:", "05.03.1987")
+# # Дата рождения: 05.03.1987
+# print("Дата рождения", re.sub("-", ".", re.sub("\\s#.*", "", s)))
+
+# s = "author=Пушкин А.С.; title  = Евгений Онегин; price =200; year= 1831"
+# reg = r'\w+\s*=\s*[^;]+'
+# # reg = r'[^;]+'
+# print(re.findall(reg, s))
+
+# s = "12 сентября 2024 года 568789456"
+# reg = r"\d{2,4}"
+# print(re.findall(reg, s))
+
+
+# s = "Я ищу совпадение в 2024 году. И я их [найду] в 2 счё_та."
+# # reg = r"^\w+\s\w+"
+# reg = r"\w+\.$"
+# print(re.findall(reg, s))
+
+def validate_login(login):
+    return re.findall(r"^[A-Za-z0-9-]{3,16}$", login)
+
+
+print(validate_login("Python-master"))
