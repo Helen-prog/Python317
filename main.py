@@ -3407,6 +3407,162 @@ import re
 # print(f.closed)
 
 
-with open("test2.txt", 'r') as f:
-    for line in f:
-        print(line[:3])
+# with open("test2.txt", 'r') as f:
+#     for line in f:
+#         print(line[:3])
+
+# def negative_numbers(n):  # n = []
+#     if not n:
+#         return 0
+#     count = 0  # 0
+#     if n[0] < 0:
+#         count += 1
+#     return negative_numbers(n[1:]) + count  # 1 + 0 + 0 + 1 + 1 + 0 + 0
+#
+#
+# lst = [-2, 3, 8, -11, -4, 6]
+# print(negative_numbers(lst))
+
+# file_name = "res.txt"
+# lst = [4.5, 2.8, 3.9, 1.0, 0.3, 4.33, 7.777]
+#
+#
+# def get_line(lt):
+#     lt = map(str, lt)  # ['4.5', '2.8', '3.9', '1.0', '0.3', '4.33', '7.777']
+#     return ' '.join(lt)  # "4.5 2.8 3.9 1.0 0.3 4.33 7.777"
+#
+#
+# with open(file_name, 'w') as f:
+#     f.write(get_line(lst))
+# #     # f.write(str(lst))  # "4.5 2.8 3.9 1.0 0.3 4.33 7.777"
+#
+#
+# with open(file_name, 'r') as f:
+#     st = f.read()
+#
+# print(st)
+# print(type(st))
+#
+# nums = list(map(float, st.split()))
+# print(nums)
+# print(type(nums[0]))
+
+# a = 5
+
+
+# if a == 5:
+#     b = 10
+
+# for i in range(12):
+#     b = 10
+
+# def func():
+#     b = 10
+#
+#
+# func()
+# print(b)
+
+# def longest_worlds(file):
+#     with open(file, 'r') as text:  # encoding="utf-8"
+#         w = text.read().split()
+#         print(w)
+#         max_length = len(max(w, key=len))
+#         print(max_length)
+#         res = [i for i in w if len(i) == max_length]
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(longest_worlds('test.txt'))
+
+
+# text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\n
+# Строка №8\nСтрока №9\nСтрока №10\n"
+#
+# with open('one.txt', 'w') as f:
+#     f.write(text)
+
+
+# with open('one.txt', 'r') as fr, open('two.txt', 'w') as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия -")
+#         fw.write(line)
+
+
+# Модуль OS, OS.PATH
+
+import os
+
+# import os.path
+
+# print(os.getcwd())  # возвращает текущую директорию
+# print(os.listdir())  # список директорий и файлов
+# print(os.listdir(".."))
+
+# os.mkdir("folder1")  # создает папку
+# os.makedirs("nested1/nested2/nested3")  # создает конечную директорию вмести с промежуточными
+
+# os.rmdir("folder1")  # удаление пустой папки
+# os.rmdir("nested1/nested2/nested3")
+
+# os.remove("xyz1.txt")  # удаление файла
+
+# os.rename("xyz.txt", "new.txt")  # переименование файла и папки
+# os.rename("folder", "new")
+
+# os.rename("two.txt", "nested1/two1.txt")
+# os.renames("test.txt", "nested1/nested3/two.txt")  # переименование файла и папки, перемещает документы,
+# создавая промежуточные директории
+
+
+# for root, dirs, files in os.walk("nested1", topdown=False):
+#     print("Root:", root)
+#     print("\tSubdirs:", dirs)
+#     print("\t\tFiles:", files)
+
+
+# def remove_empty_dirs(root_tree):
+#     print(f"Удаление пустых директорий в ветви {root_tree}")
+#     print('-' * 50)
+#     for root, dirs, files in os.walk(root_tree):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f"Директория {root} удалена.")
+#     print('-' * 50)
+#
+#
+# remove_empty_dirs("nested1")
+
+# print(os.path.split(r"D:\Python317\317\nested1\nested2\nested4\text.txt"))  # [1]
+#
+# print(os.path.join('nested4', r'D:\Python317', '317', 'nested1', 'nested2', 'text.txt'))
+
+# dirs = [r'Work\F1', r'Work\F2\F21']
+# for d in dirs:
+#     os.makedirs(d)
+
+files = {
+    'Work': ['w.txt'],
+    r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+    r'Work\F2\F21': ['f211.txt', 'f212.txt']
+}
+
+for dir1, files in files.items():
+    for file in files:
+        file_path = os.path.join(dir1, file)
+        open(file_path, 'w').close()
+
+file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+
+for file in file_with_text:
+    with open(file, 'w') as f:
+        f.write(f"Текст в файле {file}")
+
+# Work\w.txt
+# Work\F1\f11.txt
+# Work\F1\f12.txt
+# Work\F1\f13.txt
+# Work\F2\F21\f211.txt
+# Work\F2\F21\f212.txt
