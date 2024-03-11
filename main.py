@@ -3014,6 +3014,7 @@
 
 import re
 
+
 # s = "Я ищу совпадение в 2024 году. И я их найду в 2 счёта."
 # reg = "а"
 
@@ -3493,7 +3494,7 @@ import re
 
 # Модуль OS, OS.PATH
 
-import os
+# import os
 
 # import os.path
 
@@ -3543,22 +3544,22 @@ import os
 # for d in dirs:
 #     os.makedirs(d)
 
-files = {
-    'Work': ['w.txt'],
-    r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
-    r'Work\F2\F21': ['f211.txt', 'f212.txt']
-}
-
-for dir1, files in files.items():
-    for file in files:
-        file_path = os.path.join(dir1, file)
-        open(file_path, 'w').close()
-
-file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
-
-for file in file_with_text:
-    with open(file, 'w') as f:
-        f.write(f"Текст в файле {file}")
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+#
+# for dir1, files in files.items():
+#     for file in files:
+#         file_path = os.path.join(dir1, file)
+#         open(file_path, 'w').close()
+#
+# file_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+#
+# for file in file_with_text:
+#     with open(file, 'w') as f:
+#         f.write(f"Текст в файле {file}")
 
 # Work\w.txt
 # Work\F1\f11.txt
@@ -3566,3 +3567,183 @@ for file in file_with_text:
 # Work\F1\f13.txt
 # Work\F2\F21\f211.txt
 # Work\F2\F21\f212.txt
+
+
+# root = r'nested1\nested2'
+# objs = os.listdir(root)
+# print(objs)
+# objs = list(map(lambda i: os.path.join(root, i), objs))
+# # print(objs)
+#
+# # obj_sort = sorted(objs, key=os.path.isfile, reverse=True)
+# # print(obj_sort)
+# #
+# print(sorted(objs, reverse=True))
+
+# print(os.path.isfile(r"nested1\nested2\res.txt"))  # возвращает True, если путь является файлом
+# print(os.path.isdir(r"nested1\nested2"))  # возвращает True, если путь является директорией
+
+
+# print(os.path.exists(r'nested1\nested2'))  # проверка на существование пути
+# print(os.path.getsize(r'nested1\nested2'))  # размер документа в байтах
+#
+# root = r'nested1\nested2'
+# if os.path.exists(root):
+#     print(os.path.getsize(root))
+
+# b = os.path.getsize(r'main.py')
+# print(b, "байт")
+# print(b // 1024, "килобайт")
+
+# import time
+#
+# path = "main.py"
+# print(os.path.getctime(path))  # возвращает время создания файла
+# print(os.path.getatime(path))  # возвращает время последнего доступа к файлу
+# print(os.path.getmtime(path))  # возвращает время последнего изменения файла (в секундах)
+#
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getctime(path))))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getatime(path))))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getmtime(path))))
+
+
+# class Point:
+#     """Класс для предоставления координат на плоскости"""
+#     x = 1
+#     y = 1
+#
+#
+# p1 = Point()
+# print(p1.x)
+# print(type(p1))
+# print(Point.__doc__)
+# print(Point.__name__)
+# print(dir(Point))
+
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#
+# p1 = Point()
+# p1.x = 10
+# p1.y = 20
+# p1.z = 30
+# print(p1.x, p1.y, p1.z)
+# print(p1.__dict__)
+#
+# p2 = Point()
+# p2.x = 100
+# # p2.y = 200
+# print(p2.x, p2.y)
+# print(p2.__dict__)
+
+# print(id(Point))
+# print(id(p1))
+# print(id(p2))
+
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#     def set_coord(self, x, y):
+#         self.x = x
+#         self.y = y
+#         print(self.__dict__)
+#
+#
+# p1 = Point()
+# # p1.x = 5
+# # p1.y = 10
+# p1.set_coord(5, 10)
+# # Point.set_coord(p1)
+#
+# p2 = Point()
+# # p2.x = 50
+# # p2.y = 100
+# p2.set_coord(50, 100)
+# Point.set_coord(p2)
+
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address = "street, house"
+#
+#     def print_info(self):
+#         print(" Персональные данные ".center(40, "*"))
+#         print(f"Имя: {self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\nСтрана: "
+#               f"{self.country}\nГород: {self.city}\nДомашний адрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.address = address
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.name = first_name
+#         self.country = country
+#         self.city = city
+#
+#     def set_name(self, name):  # установить имя
+#         self.name = name
+#
+#     def get_name(self):  # получить имя
+#         return self.name
+#
+#     def set_birthday(self, birthday):
+#         self.birthday = birthday
+#
+#     def get_birthday(self):
+#         return self.birthday
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1A")
+# h1.print_info()
+# h1.set_name("Юлия")
+# print(h1.get_name())
+# h1.set_birthday("23.12.1990")
+# print(h1.get_birthday())
+# h1.print_info()
+
+class Person:
+    skill = 10  # статическое
+    count = 0  # 2
+
+    def __init__(self, name, surname):  # Инициализатор
+        self.name = name  # динамическое
+        self.surname = surname
+        print("Инициализатор")
+        Person.count += 1
+
+    def __del__(self):  # финализатор (деструктор)
+        print("Удаление экземпляра:", self.__class__.__name__)
+
+    def print_info(self):
+        print("Данные сотрудника:", self.name, self.surname)
+
+    def add_skill(self, k):
+        self.skill += k
+        print("Квалификация сотрудника:", self.skill, end="\n\n")
+
+
+p1 = Person("Виктор", "Резник")
+p1.print_info()
+p1.add_skill(3)
+# del p1
+# p1 = 5
+
+p2 = Person("Анна", "Долгих")
+p2.print_info()
+p2.add_skill(2)
+
+p3 = Person("Анна", "Долгих")
+print(p1.count)
+print(p2.count)
+print(Person.count)
+
