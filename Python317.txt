@@ -195,3 +195,22 @@ git clone https://github.com/Helen-prog/Python317.git
 git pull
 - забирает измения с удаленного репозитория в локальный
 
+
+class Name:
+	свойства (поля, переменные)
+		- статические
+		- динамические
+	методы (функции)
+		- статические - def method()  @staticmethod
+		- класса - def method(cls)
+		- экземпляра - def method(self)
+	
+	атрибуты = свойства + методы
+	
+
+Модифмкаторы доступа:
+public - self.name
+protected - self._name
+private - self.__name
+
+
