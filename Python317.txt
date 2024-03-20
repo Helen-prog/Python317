@@ -202,7 +202,7 @@ class Name:
 		- динамические
 	методы (функции)
 		- статические - def method()  @staticmethod
-		- класса - def method(cls)
+		- класса - def method(cls)  @classmethod
 		- экземпляра - def method(self)
 	
 	атрибуты = свойства + методы
@@ -213,4 +213,9 @@ public - self.name
 protected - self._name
 private - self.__name
 
+DRY (Don`t Repeat Youself) - не повторяйся
 
+Родительский класс (суперкласс, базовый)
+Дочерний класс (класс наследник, подкласс)
+
+Перегрузка методов

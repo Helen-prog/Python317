@@ -4163,52 +4163,291 @@ import re
 # print()
 
 
-class UserDate:
-    def __init__(self, fio, old, ps, weight):
-        self.verify_fio(fio)
-        self.verify_old(old)
-        self.verify_weight(weight)
-        self.verify_ps(ps)
+# class UserDate:
+#     def __init__(self, fio, old, ps, weight):
+#         self.fio = fio
+#         self.old = old
+#         self.password = ps
+#         self.weight = weight
+#
+#     @staticmethod
+#     def verify_fio(fio):
+#         if not isinstance(fio, str):
+#             raise TypeError("ФИО должно быть строкой")
+#         f = fio.split()  # ['Волков', 'Игорь', 'Николаевич']
+#         if len(f) != 3:
+#             raise TypeError("Неверный формат ФИО")
+#         # ['В', 'о', 'л', 'к', 'о', 'в', 'И', 'г', 'о', 'р', 'ь', 'Н', 'и', 'к', 'о', 'л', 'а', 'е', 'в', 'и', 'ч']
+#         letters = "".join(re.findall('[a-zа-яё-]', fio, re.IGNORECASE))  # ВолковИгорьНиколаевич
+#         for s in f:
+#             if len(s.strip(letters)) != 0:
+#                 raise TypeError("В ФИО можно использовать только буквы и дефис")
+#
+#     @staticmethod
+#     def verify_old(old):
+#         if not isinstance(old, int) or old < 14 or old > 120:
+#             raise TypeError("Возраст должен быть числом в диапазоне от 14 до 120 лет")
+#
+#     @staticmethod
+#     def verify_weight(w):
+#         if not isinstance(w, float) or w < 30:
+#             raise TypeError("Вес должен быть вещественным числом от 30 кг и выше")
+#
+#     @staticmethod
+#     def verify_ps(ps):
+#         if not isinstance(ps, str):
+#             raise TypeError("Паспорт должен быть строкой")
+#         s = ps.split()  # ['1234', '567890']
+#         if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+#             raise TypeError("Неверный формат паспорта")
+#         for p in s:
+#             if not p.isdigit():
+#                 raise TypeError("Серия и номер паспорта должны быть числами")
+#
+#     @property
+#     def fio(self):
+#         return self.__fio
+#
+#     @fio.setter
+#     def fio(self, fio):
+#         self.verify_fio(fio)
+#         self.__fio = fio
+#
+#     @property
+#     def old(self):
+#         return self.__old
+#
+#     @old.setter
+#     def old(self, year):
+#         self.verify_old(year)
+#         self.__old = year
+#
+#     @property
+#     def password(self):
+#         return self.__password
+#
+#     @password.setter
+#     def password(self, value):
+#         self.verify_ps(value)
+#         self.__password = value
+#
+#     @property
+#     def weight(self):
+#         return self.__weight
+#
+#     @weight.setter
+#     def weight(self, value):
+#         self.verify_weight(value)
+#         self.__weight = value
+#
+#
+# p1 = UserDate("Волков Игорь Николаевич", 26, "1234 567890", 80.8)  # "Волков Игорь Николаевич"
+#
+# # p1.fio = "Соболев Игорь Николаевич"
+# print(p1.__dict__)
 
-        self.__fio = fio
-        self.__old = old
-        self.__password = ps
-        self.__weight = weight
 
-    @staticmethod
-    def verify_fio(fio):
-        if not isinstance(fio, str):
-            raise TypeError("ФИО должно быть строкой")
-        f = fio.split()  # ['Волков', 'Игорь', 'Николаевич']
-        if len(f) != 3:
-            raise TypeError("Неверный формат ФИО")
-        # ['В', 'о', 'л', 'к', 'о', 'в', 'И', 'г', 'о', 'р', 'ь', 'Н', 'и', 'к', 'о', 'л', 'а', 'е', 'в', 'и', 'ч']
-        letters = "".join(re.findall('[a-zа-яё-]', fio, re.IGNORECASE))  # ВолковИгорьНиколаевич
-        for s in f:
-            if len(s.strip(letters)) != 0:
-                raise TypeError("В ФИО можно использовать только буквы и дефис")
+# class Point:  # (object)
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         # return "(" + str(self.__x) + ", " + str(self.__y) + ")"
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# # print(issubclass(Point, object))
+#
+#
+# class Prop:
+#     def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1):
+#         self._sp = sp
+#         self._ep = ep
+#         self._color = color
+#         self.__width = width
+#         print("Переопределенный инициализатор Prop")
+#
+#     def get_width(self):
+#         return self.__width
+#
+#
+# class Line(Prop):
+#     def __init__(self, *args):
+#         # Prop.__init__(self, *args)
+#         super().__init__(*args)
+#         print("Переопределенный инициализатор Line")
+#
+#     def draw_line(self):  # -> None
+#         print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self.get_width()}")
+#
+#
+# # class Rect(Prop):
+# #     def draw_rect(self):  # -> None
+# #         print(f"Рисование прямоугольника: {self._sp}, {self._ep}, {self._color}, {self._width}")
+#
+#
+# line = Line(Point(1, 2), Point(10, 20), "yellow", 5)
+# # print(line._color)
+#
+# line.draw_line()
+# rect = Rect(Point(30, 40), Point(70, 80))
+# rect.draw_rect()
+# print(issubclass(Line, Prop))
+# print(issubclass(Line, Rect))
+# print(Point.__dict__)
+# print(Line.__dict__)
+# print(Prop.__dict__)
 
-    @staticmethod
-    def verify_old(old):
-        if not isinstance(old, int) or old < 14 or old > 120:
-            raise TypeError("Возраст должен быть числом в диапазоне от 14 до 120 лет")
 
-    @staticmethod
-    def verify_weight(w):
-        if not isinstance(w, float) or w < 30:
-            raise TypeError("Вес должен быть вещественным числом от 30 кг и выше")
+# class Figure:
+#     def __init__(self, color):
+#         self.color = color
+#
+#
+# class Rectangle(Figure):
+#     def __init__(self, color, width, height):
+#         super().__init__(color)
+#         self.__width = width
+#         self.__height = height
+#
+#     @property
+#     def width(self):
+#         return self.__width
+#
+#     @width.setter
+#     def width(self, w):
+#         if w > 0:
+#             self.__width = w
+#         else:
+#             raise ValueError("Ширина должна быть положительным числом")
+#
+#     @property
+#     def height(self):
+#         return self.__height
+#
+#     @height.setter
+#     def height(self, h):
+#         if h > 0:
+#             self.__height = h
+#         else:
+#             raise ValueError("Высота должна быть положительным числом")
+#
+#     def area(self):
+#         print(f"Площадь {self.color} прямоугольника:", end=" ")
+#         return self.__width * self.__height
+#
+#
+# rect = Rectangle("green", 10, 20)
+# print(rect.color)
+# # rect.width = -50
+# # print(rect.width)
+# print(rect.area())
 
-    @staticmethod
-    def verify_ps(ps):
-        if not isinstance(ps, str):
-            raise TypeError("Паспорт должен быть строкой")
-        s = ps.split()  # ['1234', '567890']
-        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
-            raise TypeError("Неверный формат паспорта")
-        for p in s:
-            if not p.isdigit():
-                raise TypeError("Серия и номер паспорта должны быть числами")
+# class Rect:
+#     def __init__(self, width, height):
+#         self.width = width
+#         self.height = height
+#
+#     def show_rect(self):
+#         print(f"Прямоугольник:\nШирина: {self.width}\nВысота: {self.height}")
+#
+#
+# class RectFon(Rect):
+#     def __init__(self, width, height, background):
+#         super().__init__(width, height)
+#         self.fon = background
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print("Фон:", self.fon)
+#
+#
+# class RectBorder(Rect):
+#     def __init__(self, width, height, px, solid, red):
+#         super().__init__(width, height)
+#         self.px = px
+#         self.solid = solid
+#         self.red = red
+#
+#     def show_rect(self):
+#         super().show_rect()
+#         print(f"Рамка: {self.px} {self.solid} {self.red}")
+#
+#
+# shape1 = RectFon(400, 200, "yellow")
+# shape1.show_rect()
+# print()
+# shape2 = RectBorder(600, 300, "1px", "solid", "red")
+# shape2.show_rect()
 
 
-p1 = UserDate("Волков Игорь Николаевич", 26, "1234 567890", 80.8)  # "Волков Игорь Николаевич"
+# class Vector(set):
+#     def __str__(self):
+#         return " ".join(map(str, self))
+#         # return " ".join(self)
+#
+#
+# # v = Vector({"b", "a", "c"})
+# v = Vector({1, 2, 3})
+# print(v)
+# print(type(v))
+
+
+# class Point:  # (object)
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         # return "(" + str(self.__x) + ", " + str(self.__y) + ")"
+#         return f"({self.__x}, {self.__y})"
+#
+#
+# # print(issubclass(Point, object))
+#
+#
+
+class Point:
+    def __init__(self, x, y):
+        self.__x = x
+        self.__y = y
+
+    def __str__(self):
+        return f"({self.__x}, {self.__y})"
+
+
+class Prop:
+    def __init__(self, sp: Point, ep: Point, color: str = "red", width: int = 1):
+        self._sp = sp
+        self._ep = ep
+        self._color = color
+        self._width = width
+
+
+class Line(Prop):
+    def draw_line(self):
+        print(f"Рисование линии: {self._sp}, {self._ep}, {self._color}, {self._width}")
+
+    def set_coord(self, sp: Point = None, ep: Point = None):
+        if ep is None:
+            self._sp = sp
+        elif sp is None:
+            self._ep = ep
+        else:
+            self._sp = sp
+            self._ep = ep
+
+
+line = Line(Point(1, 2), Point(10, 20))
+line.draw_line()
+line.set_coord(Point(12, 18), Point(100, 200))
+line.draw_line()
+line.set_coord(Point(-10, -20))
+line.draw_line()
+
+line.set_coord(ep=Point(500, 700))
+line.draw_line()
+
+
 
