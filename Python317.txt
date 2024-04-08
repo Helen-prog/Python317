@@ -232,4 +232,25 @@ group = [
 ]
 for i in group:
  i.info()
+ 
+geometry -> pip
+	__init__.py
+	rect.py 
+	sq.py
+	trian.py
+	
+import sys
+sys.path
+ 
+car
+	__init__.py
+	carclass.py
+	electrocar.py
+	
+ 
+dump() - сохраняет данные в открытый файл
+load() - получаем данные из файла
+
+dumps() - сохраняет данные в строку
+loads() - получаем данные из строки
 
