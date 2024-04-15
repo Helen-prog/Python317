@@ -5884,122 +5884,270 @@
 # for i in range(5):
 #     write_json(gen_person())
 
+# import json
+#
+#
+# class Student:
+#     def __init__(self, name, marks):
+#         self.name = name
+#         self.marks = marks
+#
+#     def __str__(self):
+#         # a = ''
+#         # for i in self.marks:
+#         #     a += str(i) + ", "
+#         # return f"Студент: {self.name} => {a[:-2]}"
+#         a = ", ".join(map(str, self.marks))
+#         return f"Студент: {self.name} => {a}"
+#
+#     def add_mark(self, mark):
+#         self.marks.append(mark)
+#
+#     def delete_mark(self, index):
+#         self.marks.pop(index)
+#
+#     def edit_mark(self, index, new_mark):
+#         self.marks[index] = new_mark
+#
+#     def average_mark(self):
+#         return round(sum(self.marks) / len(self.marks), 2)
+#
+#     def get_file_name(self):
+#         return self.name.lower() + ".json"
+#
+#     def dump_to_json(self):
+#         data = {"name": self.name, "marks": self.marks}
+#         with open(self.get_file_name(), "w") as f:
+#             json.dump(data, f, indent=2)
+#
+#     def load_from_file(self):
+#         with open(self.get_file_name(), "r") as f:
+#             print(json.load(f))
+#
+#
+# class Group:
+#     def __init__(self, students, group):
+#         self.students = students
+#         self.group = group
+#
+#     def __str__(self):
+#         a = "\n".join(map(str, self.students))
+#         return f"Группа: {self.group}\n{a}"
+#
+#     def add_student(self, student):
+#         self.students.append(student)
+#
+#     def remove_student(self, index):
+#         return self.students.pop(index)
+#
+#     @staticmethod
+#     def change_group(gr1, gr2, index):
+#         gr2.add_student(gr1.remove_student(index))
+#
+#     def get_file_name(self):
+#         return self.group.lower().replace(" ", "-") + ".json"
+#
+#     def dump_to_json(self):
+#         data = [
+#             {'name': student.name, "marks": student.marks} for student in self.students
+#         ]
+#         with open(self.get_file_name(), 'w') as f:
+#             json.dump(data, f, indent=2)
+#
+#     def load_from_file(self):
+#         with open(self.get_file_name(), "r") as f:
+#             print(json.load(f))
+#
+#     def add_db(self):
+#         try:
+#             data = json.load(open('db.json'))
+#         except FileNotFoundError:
+#             data = {}
+#         js = [
+#             {student.name: student.marks} for student in self.students
+#         ]
+#         data[self.group] = js
+#         with open("db.json", "w+") as f:
+#             json.dump(data, f, indent=2)
+#         print(f"Группа {self.group} добавлена в файл")
+#
+#     @staticmethod
+#     def load_groups(file):
+#         with open(file, "r") as f:
+#             print(json.load(f))
+#
+# # st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
+# # print(st1)
+# # st1.add_mark(4)
+# # print(st1)
+# # st1.delete_mark(2)
+# # print(st1)
+# # st1.edit_mark(2, 5)
+# # print(st1)
+# # print(st1.average_mark())
+# # st1.dump_to_json()
+# # st1.load_from_file()
+# # st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
+# # st2.dump_to_json()
+# # st2.load_from_file()
+# # st2.add_mark(5)
+# # print(st2)
+# # st2.dump_to_json()
+# # st2.load_from_file()
+#
+# st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
+# st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
+# st3 = Student('Birukov', [3, 5, 3, 2, 5, 4])
+# sts1 = [st1, st2]
+# group1 = Group(sts1, "ГК Python")
+# # print(group1)
+# # print()
+# group1.add_student(st3)
+# # print(group1)
+# # print()
+# group1.remove_student(1)
+# print(group1)
+# print()
+# sts2 = [st2]
+# group2 = Group(sts2, "ГК Web")
+# print(group2)
+# Group.change_group(group1, group2, 0)
+# print()
+# print(group1)
+# print()
+# print(group2)
+# # group2.dump_to_json()
+# # group2.load_from_file()
+# # group1.dump_to_json()
+# # group1.load_from_file()
+# group1.add_db()
+# group2.add_db()
+#
+# file_name = "db.json"
+# Group.load_groups(file_name)
+
+
+# import json
+#
+#
+# class CountryCapital:
+#     @staticmethod
+#     def load(file_name):
+#         # data = None
+#         try:
+#             data = json.load(open(file_name))
+#         except FileNotFoundError:
+#             data = {}
+#         finally:
+#             return data
+#
+#     @staticmethod
+#     def add_country(file_name):
+#         new_country = input("Введите название страны: ").lower()
+#         new_capital = input("Введите название столицы: ").lower()
+#
+#         data = CountryCapital.load(file_name)
+#
+#         data[new_country] = new_capital
+#
+#         with open(file_name, 'w') as f:
+#             json.dump(data, f, indent=2)
+#
+#     @staticmethod
+#     def delete_country(file_name):
+#         del_country = input("Введите название страны: ").lower()
+#
+#         data = CountryCapital.load(file_name)
+#
+#         if del_country in data:
+#             del data[del_country]
+#
+#             with open(file_name, 'w') as f:
+#                 json.dump(data, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#     @staticmethod
+#     def search_data(file_name):
+#         country = input("Введите название страны: ").lower()
+#
+#         data = CountryCapital.load(file_name)
+#
+#         if country in data:
+#             print(f"Страна {country.capitalize()} столица {data[country].capitalize()} есть в словаре")
+#         else:
+#             print(f"Страны {country.capitalize()} нет в словаре")
+#
+#     @staticmethod
+#     def edit_data(file_name):
+#         country = input("Введите страну для корректировки: ").lower()
+#
+#         data = CountryCapital.load(file_name)
+#
+#         if country in data:
+#             new_capital = input("Введите новое значение столицы: ").lower()
+#             data[country] = new_capital
+#             with open(file_name, 'w') as f:
+#                 json.dump(data, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#     @staticmethod
+#     def load_from_file(file_name):
+#         with open(file_name) as f:
+#             print({k.capitalize(): v.capitalize() for k, v in json.load(f).items()})
+#
+#
+# file = "list_capital.json"
+# while True:
+#     index = input("Выбор действия:\n1 - добавление данных\n2 - удаление данных\n"
+#                   "3 - поиск данных\n4 - редактирование данных\n5 - просмотр данных\n"
+#                   "6 - завершение работы\nВвод: ")
+#     if index == "1":
+#         CountryCapital.add_country(file)
+#     elif index == "2":
+#         CountryCapital.delete_country(file)
+#     elif index == "3":
+#         CountryCapital.search_data(file)
+#     elif index == "4":
+#         CountryCapital.edit_data(file)
+#     elif index == "5":
+#         CountryCapital.load_from_file(file)
+#     elif index == "6":
+#         break
+#     else:
+#         print("Введен некорректный номер")
+
+
+import requests
 import json
 
+response = requests.get("https://jsonplaceholder.typicode.com/todos")
+todos = json.loads(response.text)
 
-class Student:
-    def __init__(self, name, marks):
-        self.name = name
-        self.marks = marks
+todos_by_user = {}  # {1: 11, 2: 8, 3: 7, 4: 6, 5: 12, 6: 6, 7: 9, 8: 11, 9: 8, 10: 12}
 
-    def __str__(self):
-        # a = ''
-        # for i in self.marks:
-        #     a += str(i) + ", "
-        # return f"Студент: {self.name} => {a[:-2]}"
-        a = ", ".join(map(str, self.marks))
-        return f"Студент: {self.name} => {a}"
+for todo in todos:
+    if todo["completed"]:
+        try:
+            todos_by_user[todo['userId']] += 1  # {1: 2}
+        except KeyError:
+            todos_by_user[todo['userId']] = 1  # {1: 1, 2: 1, 3: 1}
+print(todos_by_user)
 
-    def add_mark(self, mark):
-        self.marks.append(mark)
+top_users = sorted(todos_by_user.items(), key=lambda x: x[1], reverse=True)
+print(top_users)  # [(5, 12), (10, 12), (1, 11), (8, 11), (7, 9), (2, 8), (9, 8), (3, 7), (4, 6), (6, 6)]
 
-    def delete_mark(self, index):
-        self.marks.pop(index)
+max_complete = top_users[0][1]
+print(max_complete)  # 12
 
-    def edit_mark(self, index, new_mark):
-        self.marks[index] = new_mark
+users = []
+for user, num_complete in top_users:
+    if num_complete < max_complete:  # 11 < 12
+        break
+    users.append(str(user))
+print(users)  # ['5', '10']
 
-    def average_mark(self):
-        return round(sum(self.marks) / len(self.marks), 2)
-
-    def get_file_name(self):
-        return self.name.lower() + ".json"
-
-    def dump_to_json(self):
-        data = {"name": self.name, "marks": self.marks}
-        with open(self.get_file_name(), "w") as f:
-            json.dump(data, f, indent=2)
-
-    def load_from_file(self):
-        with open(self.get_file_name(), "r") as f:
-            print(json.load(f))
-
-
-class Group:
-    def __init__(self, students, group):
-        self.students = students
-        self.group = group
-
-    def __str__(self):
-        a = "\n".join(map(str, self.students))
-        return f"Группа: {self.group}\n{a}"
-
-    def add_student(self, student):
-        self.students.append(student)
-
-    def remove_student(self, index):
-        return self.students.pop(index)
-
-    @staticmethod
-    def change_group(gr1, gr2, index):
-        gr2.add_student(gr1.remove_student(index))
-
-    def get_file_name(self):
-        return self.group.lower().replace(" ", "-") + ".json"
-
-    def dump_to_json(self):
-        data = [
-            {'name': student.name, "marks": student.marks} for student in self.students
-        ]
-        with open(self.get_file_name(), 'w') as f:
-            json.dump(data, f, indent=2)
-
-    def load_from_file(self):
-        with open(self.get_file_name(), "r") as f:
-            print(json.load(f))
-
-# st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
-# print(st1)
-# st1.add_mark(4)
-# print(st1)
-# st1.delete_mark(2)
-# print(st1)
-# st1.edit_mark(2, 5)
-# print(st1)
-# print(st1.average_mark())
-# st1.dump_to_json()
-# st1.load_from_file()
-# st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
-# st2.dump_to_json()
-# st2.load_from_file()
-# st2.add_mark(5)
-# print(st2)
-# st2.dump_to_json()
-# st2.load_from_file()
-
-st1 = Student('Bodnya', [5, 4, 3, 4, 5, 3])
-st2 = Student('Nikolaenko', [2, 3, 5, 4, 2])
-st3 = Student('Birukov', [3, 5, 3, 2, 5, 4])
-sts1 = [st1, st2]
-group1 = Group(sts1, "ГК Python")
-# print(group1)
-# print()
-group1.add_student(st3)
-# print(group1)
-# print()
-group1.remove_student(1)
-print(group1)
-print()
-sts2 = [st2]
-group2 = Group(sts2, "ГК Web")
-print(group2)
-Group.change_group(group1, group2, 0)
-print()
-print(group1)
-print()
-print(group2)
-group2.dump_to_json()
-group2.load_from_file()
-
-group1.dump_to_json()
-group1.load_from_file()
+max_users = " and ".join(users)
+print(max_users)
+print(f"Users {max_users} completed {max_complete} Todos")
