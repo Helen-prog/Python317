@@ -312,7 +312,13 @@ csv.DictWriter() - {}
 pip install beautifulsoup4  или  bs4
 
 
+pip install lxml
 
+https://ru.wordpress.org/plugins/browse/blocks/page/1/
+https://ru.wordpress.org/plugins/browse/blocks/page/2/
+https://ru.wordpress.org/plugins/browse/blocks/page/3/
+
+https://ru.wordpress.org/plugins/browse/blocks/page/24/
 
 
 

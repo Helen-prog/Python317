@@ -6255,7 +6255,7 @@ import csv
 
 # Парсинг
 
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 
 
 # f = open('index.html').read()
@@ -6289,20 +6289,107 @@ from bs4 import BeautifulSoup
 #
 # print(copywriter)
 
-import re
+# import re
+#
+#
+# def get_salary(s):
+#     pattern = r"\d+"
+#     # res = re.findall(pattern, s)[0]
+#     res = re.search(pattern, s).group()
+#     print(res)
+#
+#
+# f = open('index.html').read()
+# soup = BeautifulSoup(f, "html.parser")
+# salary = soup.find_all("div", {"data-set": "salary"})
+#
+# for i in salary:
+#     get_salary(i.text)
 
 
-def get_salary(s):
-    pattern = r"\d+"
-    # res = re.findall(pattern, s)[0]
-    res = re.search(pattern, s).group()
-    print(res)
+# import requests
+#
+# r = requests.get("https://ru.wordpress.org/").encode('utf-8')
+# # print(r.content)
+# print(r.text)
+# # print(r.status_code)
+# # print(r.headers)
+
+# import requests
+# from bs4 import BeautifulSoup
+#
+#
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     p1 = soup.find("header", id="masthead").find("p", class_="site-title").text
+#     return p1
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/"
+#     print(get_data(get_html(url)))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+# import re
+# import requests
+# from bs4 import BeautifulSoup
+#
+#
+# def main():
+#     url = "https://ru.wordpress.org/plugins/"
+#     get_data(get_html(url))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, "lxml")
+#     p1 = soup.find_all("section", class_="plugin-section")[-1]
+#     plugins = p1.find_all('article')
+#
+#     for plugin in plugins:
+#         name = plugin.find("h3").text
+#         url = plugin.find("h3").find("a").get('href')
+#         rating = plugin.find("span", class_="rating-count").find("a").text
+#         r = refined(rating)
+#         data = {'name': name, "url": url, "rating": r}
+#         write_csv(data)
+#
+#
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def write_csv(data):
+#     with open("plugins.csv", "a") as f:
+#         writer = csv.writer(f, delimiter=";", lineterminator="\r")
+#         writer.writerow((data['name'], data['url'], data['rating']))
+#
+#
+# def refined(s):
+#     res = re.sub(r"\D+", "", s)
+#     return res
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 
-f = open('index.html').read()
-soup = BeautifulSoup(f, "html.parser")
-salary = soup.find_all("div", {"data-set": "salary"})
+from parsers import Parser
 
-for i in salary:
-    get_salary(i.text)
+
+def main():
+    pars = Parser("https://www.ixbt.com/live/index/news/", "news.txt")
+    pars.run()
+
+
+if __name__ == '__main__':
+    main()
 
