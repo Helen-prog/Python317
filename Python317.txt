@@ -321,6 +321,13 @@ https://ru.wordpress.org/plugins/browse/blocks/page/3/
 https://ru.wordpress.org/plugins/browse/blocks/page/24/
 
 
+articles
+	project_articles.py
+	controller.py
+	view.py
+	model.py
+
+
 
 
 
