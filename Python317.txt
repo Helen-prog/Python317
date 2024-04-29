@@ -328,6 +328,38 @@ articles
 	model.py
 
 
+127.0.0.1:5000
+
+view.py
+templates
+	index.html
+	blog.html
+	
+http://127.0.0.1:5000/
+
+*.db, *.sqlite, *.db3, *.sqlite3
+
+SELECT [ALL | DISTINCT] {* | столбец_1 [, столбец_N]}
+FROM таблица_1 [, таблица_N]
+WHERE условие
+	=, ==, !=, <>, <, <=, >, >=
+	AND, OR
+	[NOT] BETWEEN начальное_значение AND конечное_значение
+	[NOT] LIKE шаблон_строки:
+		% - любое кол-во символов
+		_ - один любой символ
+	IS [NOT] NULL	
+		
+		
+		
+	
+
+
+
+
+
+
+
 
 
 
