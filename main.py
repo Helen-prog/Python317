@@ -6560,18 +6560,18 @@
 #     UPDATE cars SET price = price + 100;
 #     """)
 
-    # cur.execute(f"UPDATE cars SET price = :Price where model LIKE 'B%'", {'Price': 0})
+# cur.execute(f"UPDATE cars SET price = :Price where model LIKE 'B%'", {'Price': 0})
 
-    # cur.executemany("INSERT INTO cars VALUES(NULL, ?, ?)", cars_list)
+# cur.executemany("INSERT INTO cars VALUES(NULL, ?, ?)", cars_list)
 
-    # for car in cars_list:
-    #     cur.execute("INSERT INTO cars VALUES(NULL, ?, ?)", car)
+# for car in cars_list:
+#     cur.execute("INSERT INTO cars VALUES(NULL, ?, ?)", car)
 
-    # cur.execute("INSERT INTO cars VALUES(1, 'Renault', 22000)")
-    # cur.execute("INSERT INTO cars VALUES(2, 'Volvo', 29000)")
-    # cur.execute("INSERT INTO cars VALUES(3, 'Mercedes', 57000)")
-    # cur.execute("INSERT INTO cars VALUES(4, 'Bentley', 35000)")
-    # cur.execute("INSERT INTO cars VALUES(5, 'Audi', 52000)")
+# cur.execute("INSERT INTO cars VALUES(1, 'Renault', 22000)")
+# cur.execute("INSERT INTO cars VALUES(2, 'Volvo', 29000)")
+# cur.execute("INSERT INTO cars VALUES(3, 'Mercedes', 57000)")
+# cur.execute("INSERT INTO cars VALUES(4, 'Bentley', 35000)")
+# cur.execute("INSERT INTO cars VALUES(5, 'Audi', 52000)")
 
 # con.commit()
 # con.close()
@@ -6700,7 +6700,7 @@
 #         cur.executescript(sql)
 
 
-from jinja2 import Template
+# from jinja2 import Template
 
 # name = "Игорь"
 # age = 28
@@ -6734,29 +6734,94 @@ from jinja2 import Template
 #
 # print(msg)
 
-cities = [
-    {"id": 1, "city": "Москва"},
-    {"id": 2, "city": "Сочи"},
-    {"id": 3, "city": "Смоленск"},
-    {"id": 4, "city": "Ярославль"},
-    {"id": 5, "city": "Минск"}
-]
+# cities = [
+#     {"id": 1, "city": "Москва"},
+#     {"id": 2, "city": "Сочи"},
+#     {"id": 3, "city": "Смоленск"},
+#     {"id": 4, "city": "Ярославль"},
+#     {"id": 5, "city": "Минск"}
+# ]
+#
+# link = """
+# <select name='cities'>
+#     {% for c in cities -%}
+#         {% if c.id > 3 -%}
+#             <option value="{{ c['id'] }}">{{ c['city'] }}</option>
+#         {% elif c.city == "Москва" %}
+#             <option>{{ c['city'] }}</option>
+#         {% else -%}
+#             {{ c['city'] }}
+#         {% endif -%}
+#     {% endfor -%}
+# </select>
+# """
+#
+# tm = Template(link)
+# msg = tm.render(cities=cities)
+#
+# print(msg)
 
-link = """
-<select name='cities'>
-    {% for c in cities -%}
-        {% if c.id > 3 -%}
-            <option value="{{ c['id'] }}">{{ c['city'] }}</option>
-        {% elif c.city == "Москва" %}
-            <option>{{ c['city'] }}</option>
-        {% else -%}
-            {{ c['city'] }}
-        {% endif -%}
-    {% endfor -%}
-</select>
-"""
+# from jinja2 import Template
 
-tm = Template(link)
-msg = tm.render(cities=cities)
+# cars = [
+#     {'model': 'Audi', 'price': 23000},
+#     {'model': 'Skoda', 'price': 17300},
+#     {'model': 'Renault', 'price': 44300},
+#     {'model': 'Wolksvagen', 'price': 21300}
+# ]
+#
+# # tp1 = "{{ (cs | min(attribute='price')).model }}"
+# # tp1 = "{{ cs | random }}"
+# tp1 = "{{ cs | replace('model', 'brand') }}"
+# tm = Template(tp1)
+# msg = tm.render(cs=cars)
+#
+# print(msg)
+# print(cars)
+
+# html = '''
+# {% macro get_input(name, value='', type='text', size=20) %}
+#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+# {% endmacro %}
+#
+# <p>{{ get_input('username') }}</p>
+# <p>{{ get_input('email') }}</p>
+# <p>{{ get_input('password', type='password') }}</p>
+# '''
+#
+# tm = Template(html)
+# msg = tm.render()
+#
+# print(msg)
+
+
+# from jinja2 import Environment, FileSystemLoader
+
+# persons = [
+#     {"name": "Алексей", "year": 18, "weight": 78.5},
+#     {"name": "Никита", "year": 28, "weight": 82.3},
+#     {"name": "Виталий", "year": 33, "weight": 94.0}
+# ]
+#
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('main.html')
+# msg = tm.render(users=persons, title="About Jinja")
+#
+# print(msg)
+
+from jinja2 import Environment, FileSystemLoader
+
+subs = ["Культура", "Наука", "Политика", "Спорт"]
+
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
+
+tm = env.get_template('about.html')
+msg = tm.render(list_table=subs)
 
 print(msg)
+
+
+

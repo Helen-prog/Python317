@@ -436,3 +436,49 @@ pip install jinja2
 {% endif %}
 
 
+{% macro имя(аргументы) %}
+
+{% endmacro %}
+
+{{ имя(параметры) }}
+
+
+
+templates
+	main.html
+	header.html
+	footer.html
+	dialog.html
+	
+	page.html
+	about.html
+	
+	
+Flask
+Django
+
+pip install Flask
+
+one
+	flsite.py
+	
+http://127.0.0.1:5000/
+http://127.0.0.1:5000/about
+http://127.0.0.1:5000/profile/admin
+
+templates
+	index.html
+	about.html
+	base.html
+static
+	css
+		style.css
+		
+	
+	
+int - только цифры
+float - вещественное число
+path - любые допустимые символы URL + "/"
+
+	
+	
