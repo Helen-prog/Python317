@@ -470,6 +470,9 @@ templates
 	index.html
 	about.html
 	base.html
+	contact.html
+	page404.html
+	login.html
 static
 	css
 		style.css
@@ -480,5 +483,21 @@ int - только цифры
 float - вещественное число
 path - любые допустимые символы URL + "/"
 
+http://127.0.0.1:5000/contact?username=igor&email=igor%40gmail.com&message=
 	
-	
+flash()
+get_flashed_messages()
+
+
+import os
+os.urandom(20).hex()
+
+
+
+sq_db.sql
+
+from two.fldbsite import create_db
+create_db()
+
+FDataBase.py
+
