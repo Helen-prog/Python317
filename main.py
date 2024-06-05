@@ -6811,17 +6811,22 @@
 #
 # print(msg)
 
-from jinja2 import Environment, FileSystemLoader
+# from jinja2 import Environment, FileSystemLoader
+#
+# subs = ["Культура", "Наука", "Политика", "Спорт"]
+#
+# file_loader = FileSystemLoader('templates')
+# env = Environment(loader=file_loader)
+#
+# tm = env.get_template('about.html')
+# msg = tm.render(list_table=subs)
+#
+# print(msg)
 
-subs = ["Культура", "Наука", "Политика", "Спорт"]
+import time
+import math
 
-file_loader = FileSystemLoader('templates')
-env = Environment(loader=file_loader)
-
-tm = env.get_template('about.html')
-msg = tm.render(list_table=subs)
-
-print(msg)
-
-
+# tm = math.floor(time.time())
+print(time.time())
+print(math.floor(time.time()))
 
