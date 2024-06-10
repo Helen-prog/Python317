@@ -504,3 +504,25 @@ FDataBase.py
 http://127.0.0.1:5000/post/1
 http://127.0.0.1:5000/post/framework-flask-intro
 
+python -m venv venv
+venv\scripts\activate
+pip install django
+
+
+pip install django
+
+first
+
+django-admin startproject password_generator_project
+- создание проекта
+
+python manage.py runserver
+- запуск сервера
+
+python manage.py startapp generator
+- создание приложения
+
+http://127.0.0.1:8000/?length=2
+
+
+
