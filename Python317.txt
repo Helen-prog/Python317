@@ -524,5 +524,19 @@ python manage.py startapp generator
 
 http://127.0.0.1:8000/?length=2
 
+second
+
+django-admin startproject personal_portfolio
+
+python manage.py startapp skills
+python manage.py startapp blog
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py createsuperuser
+
+
+http://127.0.0.1:8000/blog/
 
 
