@@ -540,3 +540,22 @@ python manage.py createsuperuser
 http://127.0.0.1:8000/blog/
 
 
+third
+
+django-admin startproject todos
+python manage.py startapp todo
+
+168fqrJWxpTBXUurXwieVpFv9lsYXYwmvZn1jPXYmj2leQG8TsCX0xntypIIJQZl
+iveBynbcxEfsfsMgz30G2LwC5EmCUIiOMotnrLpemyocwoYXvZkp7TeAuICmGALN
+
+python manage.py migrate
+python manage.py createsuperuser
+
+models.CASCADE - если пользователь будет удален, то удалятся все его задачи
+models.PROTECT - запрещает удалять пользователя, пока у него есть задачи
+models.SET_NULL - задачи останутся в базе, при удалении пользователя, но значение в поле задачи изменится на NULL
+models.SET_DEFAULT - задачи останутся в базе, при удалении пользователя, но значение в поле задачи изменится на значение заданное по умолчанию
+
+
+python manage.py makemigrations
+python manage.py migrate
