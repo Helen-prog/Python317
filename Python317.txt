@@ -559,3 +559,5 @@ models.SET_DEFAULT - задачи останутся в базе, при уда�
 
 python manage.py makemigrations
 python manage.py migrate
+
+
