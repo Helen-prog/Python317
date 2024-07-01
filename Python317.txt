@@ -560,4 +560,21 @@ models.SET_DEFAULT - задачи останутся в базе, при уда�
 python manage.py makemigrations
 python manage.py migrate
 
+django-admin startproject devsearch
+python manage.py startapp projects
 
+OneToOneField - один к одному
+ForeignKey - один ко многим
+ManyToManyField - многие ко многим
+
+python manage.py shell
+
+from projects.models import Project
+
+Project.objects.all()
+Project.objects.get(id=1)
+Project.objects.filter(id=1)
+Project.objects.filter(title__startswith="Website")
+Project.objects.filter(title__contains="site")
+Project.objects.filter(title__contains="land")
+Project.objects.exclude(title__startswith="Website")
