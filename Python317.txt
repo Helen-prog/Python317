@@ -562,6 +562,7 @@ python manage.py migrate
 
 django-admin startproject devsearch
 python manage.py startapp projects
+python manage.py startapp users
 
 OneToOneField - один к одному
 ForeignKey - один ко многим
