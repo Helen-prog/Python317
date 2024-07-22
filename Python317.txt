@@ -579,3 +579,14 @@ Project.objects.filter(title__startswith="Website")
 Project.objects.filter(title__contains="site")
 Project.objects.filter(title__contains="land")
 Project.objects.exclude(title__startswith="Website")
+
+str - любая непустая непустая строка, исключая "/"
+int - любое положительное число, включая 0
+slug - латиница ASCII, символ дефиса и подчеркивание
+uuid - цифры, малые латинские символы ACSII, дефис
+path - любая непустая непустая строка, включая "/"
+
+
+templatetags
+	__init__.py
+	blog_tags.py
