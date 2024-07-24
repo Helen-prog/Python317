@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
 from .forms import CustomUserCreationForm, ProfileForm, SkillForm
 from django.contrib.auth.decorators import login_required
+from .utils import search_profiles
 
 
 def register_user(request):
@@ -56,8 +57,8 @@ def logout_user(request):
 
 
 def profiles(request):
-    prof = Profile.objects.all()
-    context = {"profiles": prof}
+    prof, search_query = search_profiles(request)
+    context = {"profiles": prof, "search_query": search_query}
     return render(request, 'users/index.html', context)
 
 
@@ -135,3 +136,15 @@ def update_skill(request, pk):
 
     context = {'form': form}
     return render(request, 'users/skill_form.html', context)
+
+
+@login_required(login_url='login')
+def delete_skill(request, pk):
+    profile = request.user.profile
+    skill = profile.skill_set.get(id=pk)
+    if request.method == "POST":
+        skill.delete()
+        messages.success(request, "Skill was deleted successfully!")
+        return redirect('account')
+    context = {'object': skill}
+    return render(request, 'projects/delete.html', context)
