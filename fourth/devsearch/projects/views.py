@@ -1,38 +1,18 @@
 from django.shortcuts import render, redirect
 from .models import Project
-from .forms import ProjectForm
+from .forms import ProjectForm, ReviewForm
 from django.contrib.auth.decorators import login_required
-from .utils import search_projects
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from .utils import search_projects, paginate_projects
 
 
 def projects(request):
     pr, search_query = search_projects(request)
-
-    page = request.GET.get('page')
-    results = 3
-    paginator = Paginator(pr, results)
-
-    try:
-        pr = paginator.page(page)
-    except PageNotAnInteger:
-        page = 1
-        pr = paginator.page(page)
-    except EmptyPage:
-        page = paginator.num_pages
-        pr = paginator.page(page)
-
-    right_index = int(page) + 5
-
-    if right_index > paginator.num_pages:
-        right_index = paginator.num_pages + 1
-
-    custom_range = range(1, right_index)
+    custom_range, pr = paginate_projects(request, pr, 3)
 
     context = {
         'projects': pr,
         'search_query': search_query,
-        'paginator': paginator,
+        # 'paginator': paginator,
         'custom_range': custom_range
     }
     return render(request, "projects/projects.html", context)
@@ -40,7 +20,8 @@ def projects(request):
 
 def project(request, pk):
     project_obj = Project.objects.get(id=pk)
-    return render(request, "projects/single-project.html", {'project': project_obj})
+    form = ReviewForm()
+    return render(request, "projects/single-project.html", {'project': project_obj, "form": form})
 
 
 @login_required(login_url="login")

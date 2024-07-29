@@ -590,3 +590,7 @@ path - любая непустая непустая строка, включая
 templatetags
 	__init__.py
 	blog_tags.py
+
+
+http://127.0.0.1:8000/projects/?page=1
+http://127.0.0.1:8000/projects/?page=2
