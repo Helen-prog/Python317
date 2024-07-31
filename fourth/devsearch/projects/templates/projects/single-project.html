@@ -41,6 +41,13 @@
                         Vote{{project.vote_total|pluralize:"s"}})
                     </h5>
 
+                    {% if request.user.profile.id in project.reviewers %}
+                    <p>You have already submitted you review for this project</p>
+                    <!-- Вы уже отправили свой отзыв об этом проекте -->
+                    {% elif request.user.profile == project.owner %}
+                    <p>You cannot review your own work</p>
+                    <!-- Вы не можете прокомментировать свою работу -->
+                    {% elif request.user.is_authenticated %}
                     <form class="form" action="{% url 'project' project.id %}" method="POST">
                         {% csrf_token %}
                         {% for field in form %}
@@ -52,6 +59,10 @@
 
                         <input class="btn btn--sub btn--lg" type="submit" value="Comments"/>
                     </form>
+                    {% else %}
+                    <a href="{% url 'login' %}">Please login to leave a review</a>
+                    <!-- Пожалуйста, войдите, чтобы оставить отзыв-->
+                    {% endif %}
                     <div class="commentList">
                         {% for review in project.review_set.all %}
                         {% if review.body %}

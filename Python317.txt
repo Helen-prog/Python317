@@ -594,3 +594,11 @@ templatetags
 
 http://127.0.0.1:8000/projects/?page=1
 http://127.0.0.1:8000/projects/?page=2
+
+http://127.0.0.1:8000/projects/?search_query=web
+http://127.0.0.1:8000/projects/?page=2
+
+http://127.0.0.1:8000/projects/?search_query=web&page=2
+
+http://127.0.0.1:8000/projects/?search_query=web
+http://127.0.0.1:8000/projects/?search_query=web&page=2
