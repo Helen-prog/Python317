@@ -602,3 +602,19 @@ http://127.0.0.1:8000/projects/?search_query=web&page=2
 
 http://127.0.0.1:8000/projects/?search_query=web
 http://127.0.0.1:8000/projects/?search_query=web&page=2
+
+
+message_form.html
+
+
+django-admin startproject programming_blog
+python manage.py startapp blog
+
+
+str - любая непустая строка
+int - любое положительное число, включая 0
+slug - латиница ASCII, также дефис и подчеркивание
+uuid - цифры, малые литинские символы ASCII и дефис
+path - любая непустая строка, включает символ '/'
+
+

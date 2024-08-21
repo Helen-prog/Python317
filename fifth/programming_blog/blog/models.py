@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Blog(models.Model):
@@ -10,6 +11,9 @@ class Blog(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name='Категория')
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={'post_slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -23,6 +27,9 @@ class Blog(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Категория')
     slug = models.SlugField(max_length=100, unique=True, verbose_name='URL')
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'cat_slug': self.slug})
 
     def __str__(self):
         return self.name
