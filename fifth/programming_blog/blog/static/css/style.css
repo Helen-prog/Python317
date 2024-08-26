@@ -92,3 +92,35 @@ a:hover{
 .text a:hover{
     color: #264b5d;
 }
+.form-input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+button{
+    background: #81d4fa;
+    border: 2px solid #264b5d;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.list-pages{
+    display: flex;
+    justify-content: center;
+}
+.list-pages .page-num-selected{
+    background: #81d4fa;
+    padding: 20px;
+}
+.list-pages a{
+    background: #264b5d;
+    padding: 20px;
+    display: block;
+    color: #FFF;
+}
+.page-num{
+    margin: 6px;
+    font-weight: bold;
+}
