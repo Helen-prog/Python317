@@ -20,6 +20,14 @@
                 <a href="{% url m.url_name %}">{{ m.title }}</a>
             </li>
             {% endfor %}
+            {% if request.user.is_authenticated %}
+            <li class="last"> {{user.username}} | <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Выйти" class="exit">
+            </form></li>
+            {% else %}
+            <li class="last"><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></li>
+            {% endif %}
         </ul>
     </div>
 </div>
