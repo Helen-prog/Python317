@@ -621,5 +621,42 @@ templatetags
 	__init__.py
 	blog_tags.py
 	
+python manage.py collectstatic
 
 
+git init
+git add -A
+git commit -m "blog"
+
+git clone https://github.com/Helen-prog/blog.git
+
+
+mkvirtualenv --python=/usr/bin/python3.10 blogenv
+mkvirtualenv --python=/usr/bin/python3.9 blogenv
+
+
+deactivate 
+- для выхода из виртуального окружения
+
+workon blogenv
+- для повторного входа
+
+
+pip install django
+pip install pillow
+pip install django-simple-captcha
+pip install django-ckeditor
+
+
+pwd
+- просмотр пути к папке
+
+https://helenkozovyakina.pythonanywhere.com/
+
+/home/HelenKozovyakina/blog
+https://helenkozovyakina.pythonanywhere.com/
+
+
+
+django-admin startproject landing_page
+python manage.py startapp cms
