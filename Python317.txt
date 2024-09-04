@@ -660,3 +660,9 @@ https://helenkozovyakina.pythonanywhere.com/
 
 django-admin startproject landing_page
 python manage.py startapp cms
+python manage.py startapp price
+python manage.py startapp crm
+
+
+
+
