@@ -664,5 +664,17 @@ python manage.py startapp price
 python manage.py startapp crm
 
 
+@BotFather
 
+Бот обработчик заявок с сайта
+testsendbot_message_bot
+7338072230:AAGsyxl_Z5u9yE8DH55jedquCiIc761bgwk
+-4504235080
 
+https://api.telegram.org/bot<token>/НАЗВАНИЕ_МЕТОДА
+
+https://api.telegram.org/bot7338072230:AAGsyxl_Z5u9yE8DH55jedquCiIc761bgwk/sendMessage?chat_id=-4504235080&text=тест
+
+@get_id_bot
+
+/my_id@get_id_bot
