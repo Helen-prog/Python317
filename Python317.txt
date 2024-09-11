@@ -678,3 +678,18 @@ https://api.telegram.org/bot7338072230:AAGsyxl_Z5u9yE8DH55jedquCiIc761bgwk/sendM
 @get_id_bot
 
 /my_id@get_id_bot
+
+python manage.py startapp sample
+
+pip install requests
+
+
+Заявка с сайта:
+Имя: { name }
+Телефон: { phone }
+
+
+
+seventh
+django-admin startproject shop
+python manage.py startapp products
