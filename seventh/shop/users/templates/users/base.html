@@ -17,13 +17,22 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-7">
+                        {% if messages or form.errors %}
                         <div class="alert alert-warning alert-dismissible fade show" role="alert"
                              style="margin-top: 50px;">
-                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                            {% if messages %}
+                                {% for message in messages %}
+                                    {{ message }}
+                                {% endfor %}
+                            {% else %}
+                                {{ form.errors }}
+                            {% endif %}
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
+                        {% endif %}
+
                         {% block content %}
                         {% endblock %}
                     </div>
