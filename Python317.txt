@@ -694,3 +694,9 @@ seventh
 django-admin startproject shop
 python manage.py startapp products
 python manage.py startapp users
+
+
+https://myaccount.google.com
+
+site_store_shop
+

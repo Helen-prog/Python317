@@ -4,6 +4,8 @@ from .forms import UserRegistrationForm, UserLoginForm, UserProfileForm
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
 from django.http import HttpResponse
+from products.models import Basket
+from django.contrib.auth.decorators import login_required
 
 
 def login(request):
@@ -55,17 +57,27 @@ def register(request):
     return render(request, 'users/register.html', context)
 
 
+@login_required(login_url='/users/login/')
 def profile(request):
+    user = request.user
     if request.method == 'POST':
-        form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user)
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=user)
         if form.is_valid():
             form.save()
             return redirect('profile')
     else:
-        form = UserProfileForm(instance=request.user)
+        form = UserProfileForm(instance=user)
+
+    baskets = Basket.objects.filter(user=user)
+    total_quantity = sum(basket.quantity for basket in baskets)  # [2,1,2,3]
+    total_sum = sum(basket.sum() for basket in baskets)  # [4497, 5878, 4998, 2157]
+
     context = {
         'title': "Store - профиль",
-        'form': form
+        'form': form,
+        'baskets': Basket.objects.filter(user=user),
+        'total_quantity': total_quantity,
+        'total_sum': total_sum
     }
     return render(request, 'users/profile.html', context)
 
