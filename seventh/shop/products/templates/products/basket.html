@@ -38,7 +38,7 @@
                     <h4 class="float-right">{{ total_sum }} руб.</h4>
                 </div>
             </div>
-            <a href="#" class="btn btn-success btn-lg float-right">Оформить</a>
+            <a href="{% url 'order-create' %}" class="btn btn-success btn-lg float-right">Оформить</a>
         </div>
 
 {% else %}

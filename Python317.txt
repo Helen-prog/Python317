@@ -700,3 +700,8 @@ https://myaccount.google.com
 
 site_store_shop
 
+
+reset_password.html
+reset_password_sent.html
+reset.html
+reset_password_complete.html
